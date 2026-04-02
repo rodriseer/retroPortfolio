@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GameKid";
+  src: url("/GameKidAdventure.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* System display + panel tokens */
+:root {
+  --content-max: 76rem;
+  --os-radius: 0.875rem;
+  --os-radius-lg: 1rem;
+  --os-border: 2px;
+  --os-panel-pad: 1.25rem;
+  --os-panel-pad-md: 1.75rem;
+  --os-panel-pad-lg: 2.25rem;
+  --os-gap: 1.25rem;
+  --os-gap-md: 1.5rem;
+  --panel-radius: var(--os-radius);
+  --panel-border: 2px;
+  --panel-padding: var(--os-panel-pad-md);
+  --panel-padding-md: var(--os-panel-pad-lg);
+  --section-gap: 1.5rem;
+  --section-gap-md: 2rem;
+  --panel-glow: 0 0 0 1px rgba(167, 139, 250, 0.1), 0 8px 36px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --panel-bg: rgba(26, 23, 48, 0.98);
+  --panel-inner-bg: rgba(20, 18, 40, 0.96);
+  --os-chassis-bg: rgba(12, 11, 24, 0.96);
+  --os-chassis-edge: rgba(167, 139, 250, 0.16);
+  --os-chassis-shadow: 0 0 0 1px rgba(90, 88, 120, 0.55), 0 12px 48px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+@layer base {
+  body {
+    @apply bg-transparent font-sans text-retro-text antialiased;
+  }
+}
+
+.retro-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+}
+
+@layer components {
+  .content-container {
+    width: 100%;
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @screen sm {
+    .content-container {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+  @screen md {
+    .content-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  /* Readable body copy — Inter / sans only */
+  .os-body {
+    @apply font-sans text-[0.8125rem] font-normal text-retro-text/95 sm:text-sm md:text-[0.9375rem];
+    line-height: 1.68;
+  }
+
+  /* Unified in-app panels (cards, sections) */
+  .os-panel {
+    border-radius: var(--os-radius);
+    border: var(--os-border) solid rgb(82 80 110 / 0.88);
+    background-color: rgba(24, 21, 46, 0.97);
+    box-shadow: var(--panel-glow);
+  }
+  .os-panel-pad {
+    padding: var(--os-panel-pad);
+  }
+  @screen md {
+    .os-panel-pad {
+      padding: var(--os-panel-pad-md);
+    }
+  }
+  @screen lg {
+    .os-panel-pad-lg {
+      padding: var(--os-panel-pad-lg);
+    }
+  }
+
+  .retro-panel {
+    border-radius: var(--panel-radius);
+    border-width: var(--panel-border);
+    border-color: theme("colors.retro.border");
+    background-color: var(--panel-bg);
+    box-shadow: var(--panel-glow);
+    overflow: hidden;
+  }
+  .retro-panel-inner {
+    padding: var(--panel-padding);
+    border-top-width: var(--panel-border);
+    border-color: theme("colors.retro.border / 0.6");
+    background-color: var(--panel-inner-bg);
+    border-radius: 0 0 var(--panel-radius) var(--panel-radius);
+  }
+  @screen md {
+    .retro-panel-inner {
+      padding: var(--panel-padding-md);
+    }
+  }
+
+  .retro-text-readable {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+  .retro-title-readable {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  }
+  .retro-cta-button {
+    min-height: 2.75rem;
+    @apply font-sans font-semibold tracking-tight;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  /**
+   * Contained scrolling — use only inside dashboard panels (never on the root viewport).
+   * Retro thin scrollbar: indigo/violet thumb, dark track, subtle glow.
+   */
+  .os-panel-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(167, 139, 250, 0.65) rgba(10, 8, 22, 0.92);
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .os-panel-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .os-panel-scroll::-webkit-scrollbar-track {
+    margin: 4px 0;
+    background: rgba(10, 8, 22, 0.88);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px rgba(72, 70, 98, 0.65);
+  }
+
+  .os-panel-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: linear-gradient(
+      180deg,
+      rgba(196, 181, 253, 0.55) 0%,
+      rgba(139, 92, 246, 0.45) 50%,
+      rgba(109, 40, 217, 0.5) 100%
+    );
+    box-shadow:
+      0 0 8px rgba(167, 139, 250, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(82, 80, 110, 0.55);
+  }
+
+  .os-panel-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(221, 214, 254, 0.65) 0%,
+      rgba(167, 139, 250, 0.55) 50%,
+      rgba(139, 92, 246, 0.55) 100%
+    );
+    box-shadow:
+      0 0 12px rgba(167, 139, 250, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .os-panel-scroll::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /** @deprecated use .os-panel-scroll for panel bodies */
+  .os-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .retro-nav-icon {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* Main CRT / system display shell */
+  .os-display-chassis {
+    border-radius: var(--os-radius-lg);
+    background: var(--os-chassis-bg);
+    box-shadow: var(--os-chassis-shadow);
+    border: 2px solid rgba(72, 70, 98, 0.9);
+  }
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  scroll-behavior: auto;
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-[var(--os-radius)] focus:border-2 focus:border-retro-highlight focus:bg-retro-panel-solid focus:px-4 focus:py-3 focus:font-sans focus:text-sm focus:text-retro-text focus:shadow-glow-md focus:outline-none focus:ring-2 focus:ring-retro-highlight focus:ring-offset-2 focus:ring-offset-retro-bg-dark;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .os-panel-scroll {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
