@@ -25,7 +25,7 @@ export default function OSStatusBar({ activeModuleLabel }: OSStatusBarProps) {
     >
       <div className="content-container flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-2 font-mono text-[10px] text-retro-muted md:px-6 md:py-2.5 md:text-[11px]">
         <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="shrink-0 font-retro text-xs tracking-[0.1em] text-retro-highlight/90 sm:text-sm">
+          <span className="shrink-0 retro-font text-[10px] leading-snug tracking-[0.08em] text-retro-highlight/90 sm:text-[11px]">
             {RODRIGO_OS_VERSION}
           </span>
           <span className="hidden text-retro-border-light sm:inline" aria-hidden>
@@ -33,12 +33,14 @@ export default function OSStatusBar({ activeModuleLabel }: OSStatusBarProps) {
           </span>
           <span className="truncate font-sans text-[10px] font-medium text-retro-text/85 md:text-[11px]">
             <span className="font-mono text-retro-muted">Task</span>{" "}
-            <span className="font-retro text-xs text-retro-highlight/90">{activeModuleLabel}</span>
+            <span className="retro-font text-[10px] leading-snug text-retro-highlight/90 sm:text-[11px]">
+              {activeModuleLabel}
+            </span>
           </span>
           <span className="hidden text-retro-border-light md:inline" aria-hidden>
             │
           </span>
-          <span className="hidden text-retro-text/55 md:inline">Build · dev</span>
+          <span className="hidden text-retro-text/55 md:inline">Ship-ready builds</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-x-3 md:gap-x-4">

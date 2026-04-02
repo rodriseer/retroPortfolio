@@ -30,37 +30,32 @@ export type SeerLabsHub = {
   modules: ProjectModule[];
 };
 
-/** Parent platform — SurfSeer, CycleSeer, CampSeer ship under this brand */
+/** Parent platform — example project grouping (SurfSeer, CycleSeer, CampSeer) */
 export const SEER_LABS: SeerLabsHub = {
   name: "Seer Labs",
-  descriptionLines: [
-    "Platform for building data-driven tools for outdoor decision-making.",
-    "Includes SurfSeer, CycleSeer, and CampSeer — systems that turn real-time data into usable insights.",
-  ],
-  impactLine: "Hub for outdoor intelligence products and shared platform work.",
-  tags: ["Full Stack", "Data Systems", "Product Design"],
+  descriptionLines: ["Platform for building data-driven applications and systems."],
+  impactLine: "→ Ships SurfSeer, CycleSeer, and CampSeer as separate modules—shared stack, independent deploys.",
+  tags: ["Full Stack", "Data Systems", "Platform"],
   badgeLabels: ["Primary platform", "Core system"],
   demoUrl: "https://theseerlab.com/",
   modules: [
     {
       name: "SurfSeer",
-      description: "Marine forecasting tool that scores surf conditions using live data.",
-      highlights: ["700+ users in first week", "Processes real-time marine data"],
+      description: "Marine forecasting system using real-time data to generate condition scores.",
+      highlights: ["700+ users in first week", "Real-time ingestion and scoring pipelines"],
       tags: ["Next.js", "APIs", "Data Processing"],
       demoUrl: "https://surfcheckseer.com/",
       githubUrl: "https://github.com/rodriseer/surfseer",
     },
     {
       name: "CycleSeer",
-      description:
-        "Cycling route intelligence tool that evaluates routes based on elevation, distance, and ride quality.",
+      description: "Cycling route analysis tool based on elevation, distance, and ride metrics.",
       tags: ["Routing", "Mapbox", "UI/UX"],
       demoUrl: "https://cycleseer.com/",
     },
     {
       name: "CampSeer",
-      description:
-        "Camping decision tool that analyzes weather, night conditions, and environmental factors. Helps users choose the best time and place to camp.",
+      description: "Decision tool that evaluates environmental and weather conditions.",
       tags: ["Weather APIs", "Scoring Logic"],
       demoUrl: "https://campseer.vercel.app/",
     },
@@ -70,8 +65,7 @@ export const SEER_LABS: SeerLabsHub = {
 export const OTHER_PROJECTS: ProjectModule[] = [
   {
     name: "Side A AI",
-    description:
-      "AI-assisted desktop tool that tags and organizes photos to improve creative workflow.",
+    description: "AI-assisted tool for tagging and organizing image datasets.",
     tags: ["Python", "AI", "Computer Vision"],
     githubUrl: "https://github.com/rodriseer/sideA",
   },
@@ -121,10 +115,17 @@ export const SKILL_GROUPS: { category: string; stats: SkillStat[] }[] = [
 ];
 
 export const ACHIEVEMENTS: { title: string; detail: string }[] = [
-  { title: "Shipper", detail: "Built 5+ full-stack apps end to end." },
-  { title: "Reach", detail: "700+ users in the first week (SurfSeer launch)." },
-  { title: "Lead", detail: "Led a team project from idea to delivery." },
+  { title: "Delivery", detail: "5+ full-stack apps taken from idea through deploy—APIs, UI, and data in the loop." },
+  { title: "Reach", detail: "700+ users in week one on a shipped launch—real traffic, not a demo." },
+  { title: "Lead", detail: "Owned team project scope through delivery: clear outputs and shipped milestones." },
 ];
+
+/** Résumé PDF served from `/public/resume.pdf` */
+export const RESUME_PDF = {
+  href: "/resume.pdf",
+  filename: "resume.pdf",
+  downloadAs: "Rodrigo_Seers_Resume.pdf",
+} as const;
 
 export type FileEntry =
   | {
@@ -149,7 +150,7 @@ export const FILE_ENTRIES: FileEntry[] = [
     children: [
       {
         name: "README.txt",
-        detail: "Résumé line temporarily hidden. Add a PDF URL as a file entry in os-content when ready.",
+        detail: "See Resume panel above for the PDF. Add more entries here as needed.",
       },
     ],
   },

@@ -32,7 +32,7 @@ export default function OSScreenDisplay({ screen, children }: OSScreenDisplayPro
                 <span className="font-mono text-[9px] uppercase tracking-wider text-retro-muted/85">Viewport</span>
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="m-0 font-retro text-xl tracking-wide text-retro-highlight-bright retro-title-readable sm:text-2xl">
+                <h2 className="m-0 text-xl text-retro-highlight-bright retro-title-readable sm:text-2xl">
                   {meta.label}
                 </h2>
                 <span

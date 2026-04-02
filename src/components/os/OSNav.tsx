@@ -19,7 +19,7 @@ export default function OSNav({ active, onSelect, activeSection }: OSNavProps) {
     <aside className="flex min-h-0 shrink-0 flex-col border-b border-retro-border/55 bg-gradient-to-b from-black/35 to-black/20 lg:w-[15.5rem] lg:max-w-[15.5rem] lg:border-b-0 lg:border-r lg:border-retro-border/55">
       <div className="shrink-0 border-b border-retro-border/40 px-3 py-3 sm:px-4 sm:py-3.5">
         <p className="m-0 font-mono text-[9px] uppercase tracking-[0.28em] text-retro-muted/90">System menu</p>
-        <p className="m-0 mt-1.5 font-retro text-lg tracking-wide text-retro-highlight-bright retro-title-readable sm:text-xl">
+        <p className="m-0 mt-1.5 retro-font text-base leading-snug tracking-wide text-retro-highlight-bright retro-title-readable sm:text-lg">
           Modules
         </p>
         <p className="m-0 mt-2 font-mono text-[10px] text-retro-text/75">
@@ -100,7 +100,7 @@ export default function OSNav({ active, onSelect, activeSection }: OSNavProps) {
                   unoptimized
                 />
                 <span className="min-w-0 flex-1">
-                  <span className="font-retro block text-sm leading-tight tracking-wide retro-title-readable md:text-[15px]">
+                  <span className="retro-font block text-[11px] leading-snug tracking-wide retro-title-readable sm:text-xs md:text-[13px]">
                     {item.label}
                   </span>
                   <span

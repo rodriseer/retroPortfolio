@@ -6,9 +6,9 @@ import { useSound } from "@/context/SoundContext";
 const SESSION_KEY = "portfolio_boot_seen";
 
 const LOADING_MESSAGES = [
-  "Initializing system",
-  "Loading portfolio",
-  "Entering cartridge",
+  "Initializing Rodrigo OS",
+  "Loading portfolio modules",
+  "Mounting interface",
 ] as const;
 
 const MESSAGE_INTERVAL_MS = 650;
@@ -129,7 +129,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
         <div className="relative z-10 flex flex-col items-center gap-8 px-4 animate-fade-in">
           <h2
             id="boot-title"
-            className="font-retro text-3xl md:text-4xl lg:text-5xl text-retro-boot-title tracking-wider m-0"
+            className="m-0 max-w-[min(100%,28rem)] text-center text-2xl leading-tight text-retro-boot-title sm:text-3xl md:text-4xl lg:text-5xl"
           >
             Rodrigo OS
           </h2>

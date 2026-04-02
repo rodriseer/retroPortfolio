@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        /** Body: Inter (see layout.tsx) */
         sans: [
           "var(--font-inter)",
           "ui-sans-serif",
@@ -19,7 +20,10 @@ const config: Config = {
           "Arial",
           "sans-serif",
         ],
-        retro: ["var(--font-gamekid)", "GameKid", "ui-monospace", "monospace"],
+        /** Display: Press Start 2P — headings, OS chrome, short labels (not long paragraphs) */
+        display: ["var(--font-press-start)", "ui-monospace", "monospace"],
+        /** @deprecated use `font-display`; same stack */
+        retro: ["var(--font-press-start)", "ui-monospace", "monospace"],
       },
       colors: {
         retro: {

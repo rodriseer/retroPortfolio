@@ -35,7 +35,7 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
     >
       <div className="content-container flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5 py-2.5 sm:py-3 md:px-6 md:py-3.5">
         <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
-          <span className="shrink-0 font-retro text-sm tracking-[0.12em] text-retro-highlight-bright sm:text-base">
+          <span className="shrink-0 retro-font text-[11px] leading-snug tracking-[0.1em] text-retro-highlight-bright sm:text-xs sm:tracking-[0.12em]">
             {RODRIGO_OS_VERSION}
           </span>
           <span className="hidden text-retro-border-light sm:inline" aria-hidden>
@@ -54,7 +54,9 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
             aria-label={`Active workspace ${meta.systemSection}`}
           >
             <span className="text-retro-muted uppercase tracking-wider">Screen</span>
-            <span className="font-retro text-xs tracking-wide text-retro-highlight md:text-sm">{meta.systemSection}</span>
+            <span className="retro-font text-[10px] leading-snug tracking-wide text-retro-highlight md:text-[11px]">
+              {meta.systemSection}
+            </span>
             <span className="hidden max-w-[9rem] truncate font-sans text-[10px] font-medium text-retro-text/88 sm:inline" title={meta.label}>
               {meta.label}
             </span>

@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "GameKid";
-  src: url("/GameKidAdventure.ttf") format("truetype");
-  font-display: swap;
-}
+/* Fonts: Inter + Press Start 2P are loaded via next/font in layout.tsx (production-optimized, no duplicate @font-face). */
 
 /* System display + panel tokens */
 :root {
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display-family: var(--font-press-start), ui-monospace, monospace;
   --content-max: 76rem;
   --os-radius: 0.875rem;
   --os-radius-lg: 1rem;
@@ -39,6 +37,12 @@
   body {
     @apply bg-transparent font-sans text-retro-text antialiased;
   }
+
+  h1,
+  h2,
+  h3 {
+    @apply retro-font;
+  }
 }
 
 .retro-scanline {
@@ -52,6 +56,16 @@
 }
 
 @layer components {
+  /**
+   * Display / “retro” type — Press Start 2P via next/font (`--font-press-start`).
+   * Use for headings, OS chrome, nav labels, short titles. Never for long paragraphs (use `font-sans` / `.os-body`).
+   */
+  .retro-font {
+    font-family: var(--font-display-family);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   .content-container {
     width: 100%;
     max-width: var(--content-max);
@@ -76,7 +90,7 @@
   /* Readable body copy — Inter / sans only */
   .os-body {
     @apply font-sans text-[0.8125rem] font-normal text-retro-text/95 sm:text-sm md:text-[0.9375rem];
-    line-height: 1.68;
+    line-height: 1.7;
   }
 
   /* Unified in-app panels (cards, sections) */
