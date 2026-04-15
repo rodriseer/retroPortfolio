@@ -25,7 +25,7 @@ type OSScreenContentProps = {
 type ViewportTabItem<T extends string | number> = { id: T; label: string };
 
 const viewportTabBaseClass =
-  "retro-font rounded-[var(--os-radius)] border-2 px-2.5 py-1.5 text-[8px] font-semibold leading-snug tracking-[0.1em] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-retro-bg-dark sm:px-3 sm:text-[9px]";
+  "retro-font rounded-[var(--os-radius)] border-2 px-2.5 py-2 text-[8px] font-semibold leading-snug tracking-[0.1em] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-retro-bg-dark sm:px-3 sm:py-1.5 sm:text-[9px]";
 const viewportTabActiveClass =
   "border-retro-highlight/70 bg-retro-highlight/14 text-retro-highlight-bright shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
 const viewportTabIdleClass =

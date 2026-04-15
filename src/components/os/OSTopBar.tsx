@@ -30,30 +30,30 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
 
   return (
     <header
-      className="shrink-0 w-full border-b-2 border-retro-border/90 bg-gradient-to-b from-retro-panel-solid to-[#18152c] shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+      className="safe-top shrink-0 w-full border-b-2 border-retro-border/90 bg-gradient-to-b from-retro-panel-solid to-[#18152c] shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
       role="banner"
     >
-      <div className="content-container flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5 py-2.5 sm:py-3 md:px-6 md:py-3.5">
-        <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
+      <div className="content-container flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 py-2 sm:gap-x-4 sm:gap-y-2.5 sm:py-2.5 md:px-6 md:py-3.5">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 sm:gap-x-3">
           <span className="shrink-0 retro-font text-[11px] leading-snug tracking-[0.1em] text-retro-highlight-bright sm:text-xs sm:tracking-[0.12em]">
             {RODRIGO_OS_VERSION}
           </span>
           <span className="hidden text-retro-border-light sm:inline" aria-hidden>
             │
           </span>
-          <span className="font-mono text-[10px] text-retro-muted md:text-[11px]">
+          <span className="hidden font-mono text-[10px] text-retro-muted sm:inline md:text-[11px]">
             Host <span className="text-retro-text/85">localhost</span>
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1.5 md:gap-x-5">
+        <div className="flex flex-wrap items-center justify-end gap-x-2 gap-y-1.5 sm:gap-x-3 md:gap-x-5">
           <div
-            className="flex items-center gap-2 rounded-md border border-retro-highlight/35 bg-retro-highlight/[0.08] px-2.5 py-1 font-mono text-[10px] md:text-[11px]"
+            className="flex items-center gap-1.5 rounded-md border border-retro-highlight/35 bg-retro-highlight/[0.08] px-2 py-1 font-mono text-[10px] sm:gap-2 sm:px-2.5 md:text-[11px]"
             role="status"
             aria-live="polite"
             aria-label={`Active workspace ${meta.systemSection}`}
           >
-            <span className="text-retro-muted uppercase tracking-wider">Screen</span>
+            <span className="hidden text-retro-muted uppercase tracking-wider sm:inline">Screen</span>
             <span className="retro-font text-[10px] leading-snug tracking-wide text-retro-highlight md:text-[11px]">
               {meta.systemSection}
             </span>
@@ -67,7 +67,7 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
             />
           </div>
 
-          <span className="flex items-center gap-1.5 font-mono tabular-nums text-[10px] text-retro-text/90 md:text-[11px]" aria-live="polite">
+          <span className="hidden items-center gap-1.5 font-mono tabular-nums text-[10px] text-retro-text/90 sm:flex md:text-[11px]" aria-live="polite">
             <span className="text-retro-muted">CLK</span>
             {formatTime(now)}
           </span>
@@ -76,7 +76,7 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
             type="button"
             onClick={toggleSoundEnabled}
             className={`
-              shrink-0 rounded-md border px-2 py-1 font-mono text-[9px] uppercase tracking-wider transition-colors duration-200
+              shrink-0 rounded-md border px-2.5 py-2 font-mono text-[9px] uppercase tracking-wider transition-colors duration-200 sm:px-2 sm:py-1
               focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-retro-panel-solid
               ${soundEnabled
                 ? "border-retro-highlight/55 bg-retro-highlight/12 text-retro-highlight"
@@ -90,7 +90,7 @@ export default function OSTopBar({ screen }: OSTopBarProps) {
             {soundEnabled ? "SND+" : "SND−"}
           </button>
 
-          <span className="flex items-center gap-1.5 shrink-0 font-mono text-[10px] text-emerald-400/85 md:text-[11px]">
+          <span className="hidden items-center gap-1.5 shrink-0 font-mono text-[10px] text-emerald-400/85 sm:flex md:text-[11px]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-25 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400/90" />

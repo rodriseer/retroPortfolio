@@ -227,6 +227,16 @@ html {
   scroll-behavior: auto;
 }
 
+/* Safe-area insets for notched / island iPhones (viewport-fit: cover) */
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 @layer components {
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-[var(--os-radius)] focus:border-2 focus:border-retro-highlight focus:bg-retro-panel-solid focus:px-4 focus:py-3 focus:font-sans focus:text-sm focus:text-retro-text focus:shadow-glow-md focus:outline-none focus:ring-2 focus:ring-retro-highlight focus:ring-offset-2 focus:ring-offset-retro-bg-dark;

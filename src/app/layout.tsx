@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   title: "Rodrigo OS | Rodrigo Seer",
   description:
     "Software engineer portfolio — data-driven apps, APIs, and tools people use. Interactive Rodrigo OS experience.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

@@ -17,7 +17,7 @@ export default function OSNav({ active, onSelect, activeSection }: OSNavProps) {
 
   return (
     <aside className="flex min-h-0 shrink-0 flex-col border-b border-retro-border/55 bg-gradient-to-b from-black/35 to-black/20 lg:w-[15.5rem] lg:max-w-[15.5rem] lg:border-b-0 lg:border-r lg:border-retro-border/55">
-      <div className="shrink-0 border-b border-retro-border/40 px-3 py-3 sm:px-4 sm:py-3.5">
+      <div className="hidden shrink-0 border-b border-retro-border/40 px-3 py-3 sm:block sm:px-4 sm:py-3.5">
         <p className="m-0 font-mono text-[9px] uppercase tracking-[0.28em] text-retro-muted/90">System menu</p>
         <p className="m-0 mt-1.5 retro-font text-base leading-snug tracking-wide text-retro-highlight-bright retro-title-readable sm:text-lg">
           Modules
@@ -49,7 +49,7 @@ export default function OSNav({ active, onSelect, activeSection }: OSNavProps) {
                 onSelect(item.id);
               }}
               className={`
-                group relative flex min-w-[8.25rem] shrink-0 flex-col gap-1 rounded-[var(--os-radius)] border-2 px-3 py-2.5 text-left transition-[transform,background-color,border-color,box-shadow,color,opacity] duration-200 ease-out
+                group relative flex min-w-[6.5rem] shrink-0 flex-col gap-1 rounded-[var(--os-radius)] border-2 px-2.5 py-2 text-left transition-[transform,background-color,border-color,box-shadow,color,opacity] duration-200 ease-out sm:min-w-[8.25rem] sm:px-3 sm:py-2.5
                 focus:outline-none focus-visible:ring-2 focus-visible:ring-retro-highlight focus-visible:ring-offset-2 focus-visible:ring-offset-[rgba(14,12,28,0.95)]
                 lg:min-w-0 lg:w-full lg:px-3.5 lg:py-3
                 ${isActive
@@ -104,7 +104,7 @@ export default function OSNav({ active, onSelect, activeSection }: OSNavProps) {
                     {item.label}
                   </span>
                   <span
-                    className={`mt-0.5 block truncate font-sans text-[10px] font-medium uppercase tracking-wider transition-colors duration-200 md:text-[11px] ${
+                    className={`mt-0.5 hidden truncate font-sans text-[10px] font-medium uppercase tracking-wider transition-colors duration-200 sm:block md:text-[11px] ${
                       isActive ? "text-retro-highlight/80" : "text-retro-muted/85 group-hover:text-retro-muted"
                     }`}
                   >
